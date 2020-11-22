@@ -1605,63 +1605,114 @@ stories:
     - email: ts.muralee@gmail.com
   - action: email_restaurant_details
 
-- story: interactive_story_1
+- story: Invalid_range_1
   steps:
   - intent: restaurant_search
     entities:
-    - cuisine: chinese
     - location: chennai
-    - cuisine: chinese
   - slot_was_set:
     - location: chennai
   - action: action_check_location
   - slot_was_set:
     - location: chennai
-  - slot_was_set:
-    - location_found: tier1_tier2
-  - action: action_search_restaurants
-  - slot_was_set:
-    - location: chennai
-  - slot_was_set:
-    - result: "AB's - Absolute Barbecues in 45, GN Chetty Road, T. Nagar, Chennai has been rated 4.8\nAB's - Absolute Barbecues in Velachery Tharamani Link Road, Opposite TCS, Velachery, Chennai has been rated 4.7\nAvartana - ITC Grand Chola in ITC Grand Chola, 63, Mount Road, Guindy, Chennai has been rated 4.7\nNasi And Mee in 18/24, Yafa Towers, Khader Nawaz Khan Road, Nungambakkam, Chennai has been rated 4.6\nThe Marina in 39, College Road, Nungambakkam, Chennai has been rated 4.6\nVasco's - Hilton Chennai in Hilton, 124/1, JN Salai, Guindy, Chennai has been rated 4.6\nSoy Soi in 2/10, Gandhi Mandapam Road, Kotturpuram, Chennai has been rated 4.5\nMamagoto in Shop 9, Oyster Building, Khader Nawaz Khan Road, Nungambakkam, Chennai has been rated 4.5\nPumpkin Tales in 37/20, Bheemanna Garden Street, Alwarpet, Chennai has been rated 4.5\nAlchemy Bar & Lounge in 180, TTK Road, Alwarpet, Chennai has been rated 4.5\nAB's - Absolute Barbecues in 5th Floor, Vivira Mall, Navallur, Chennai has been rated 4.5\n"
-  - action: utter_ask_whethermail
-  - intent: affirm
-    entities:
-    - email: samal.rajesh@gmail.com
-  - slot_was_set:
-    - email: samal.rajesh@gmail.com
-  - action: email_restaurant_details
-
-- story: With_rang_specified_as_>700
-  steps:
-  - intent: restaurant_search
-    entities:
-    - location: bengaluru
-    - budget: high
-  - slot_was_set:
-    - budget: high
-  - slot_was_set:
-    - location: bengaluru
-  - action: action_check_location
-  - slot_was_set:
-    - location: bengaluru
   - slot_was_set:
     - location_found: tier1_tier2
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
-    - cuisine: north indian
+    - cuisine: chinese
   - slot_was_set:
-    - cuisine: north indian
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 300
+  - slot_was_set:
+    - budget: more than 300
   - action: action_search_restaurants
   - slot_was_set:
-    - location: bengaluru
+    - location: chennai
   - slot_was_set:
-    - result: "Truffles in 28, 4th B Cross, Koramangala 5th Block, Bangalore has been rated 4.8\nWindmills Craftworks in 331, EPIP Area, Road 5B, Near KTPO, Whitefield, Bangalore has been rated 4.7\nCommuniti in 67 & 68, Brigade Solitaire, Opposite Advaith Hyundai, Residency Road, Bangalore has been rated 4.7\nBurma Burma in 607, Ground Floor, 12th Main, Hal 2nd Stage, Indiranagar, Bangalore has been rated 4.7\nAB's - Absolute Barbecues in 90/4, 3rd Floor, Outer Ring Road, Munnekollaly Village, Marathahalli, Bangalore has been rated 4.7\nAB's - Absolute Barbecues in 100 Feet Road, 1st Phase, Near Jayadeva Flyover, 2nd Stage, BTM, Bangalore has been rated 4.7\nBrahma Brews in Opposite Brigade Palm Springs, 24th Main, 7th Phase, JP Nagar, Bangalore has been rated 4.6\nOlive Bar And Kitchen in 16, Wood Street, Ashok Nagar, Richmond Road, Bangalore has been rated 4.6\nFenny's Lounge And Kitchen in 115, 3rd Floor, Opposite Raheja Arcade, Koramangala 7th Block, Bangalore has been rated 4.6\nPhobidden Fruit in 965, 12th Main, HAL 2nd Stage, Off 100 Feet Road, Indiranagar, Bangalore has been rated 4.6\nPortland Steakhouse & Cafe in 1, Brunton Road, 1st Cross, Ashok Nagar, MG Road, Bangalore has been rated 4.6\n"
+    - budget: null
+  - slot_was_set:
+    - result: null
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: med
+  - slot_was_set:
+    - budget: med
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - result: "Momo Sa-Khang by Kailash Kitchen in 2/247, Perinbavilas Complex, Opposite Chitra Apartments, Choolaimedu, Chennai has been rated 4.6\nKabab Corner in 12/1, Opposite Royal Enfield Showroom, Greams Road, Egmore, Chennai has been rated 4.6\nFoods & Frames Inn in 9, 2nd Street, Iyyappan Nagar, Lakshmipuram, Kolathur, Chennai has been rated 4.5\nShree Mithai in 189, AI Block, Shanthi Colony, Anna Nagar East, Chennai has been rated 4.4\n"
   - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
   - intent: affirm
     entities:
     - email: ts.muralee@gmail.com
   - slot_was_set:
     - email: ts.muralee@gmail.com
   - action: email_restaurant_details
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Invalid_range_2
+  steps:
+  - intent: greet
+
+- story: interactive_story_2
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: chennai
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: chennai
+  - action: action_check_location
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 453
+  - slot_was_set:
+    - budget: more than 453
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - budget: null
+  - slot_was_set:
+    - result: null
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+  - slot_was_set:
+    - budget: low
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - cuisine: null
+  - slot_was_set:
+    - result: null
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - result: "Welcome Hotel in 112/241, Purasawalkam High Road, Purasavakkam, Chennai. has been rated 4.6\nDosa Factory in Near Bain School, Kilpauk, Chennai has been rated 4.6\nAndhra Snacking in Opposite Taramani IIT Gate, Pillayar Kovil Street, Taramani, Chennai has been rated 4.6\nNair Mess in 22, Mohammed Abdullah, 2nd Street, Opposite Chepauk Stadium, Chepauk, Triplicane, Chennai has been rated 4.5\nNithya Amirtham Sweets in 58/43, Taylors Road, Opposite SBI Bank, Kilpauk, Chennai has been rated 4.5\n"
+  - action: utter_ask_whethermail

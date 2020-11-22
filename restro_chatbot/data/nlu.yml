@@ -26,9 +26,6 @@ nlu:
     - correct
     - great choice
     - sounds really good
-    - thanks
-    - thank you
-    - Thank you
     - yes. Thank you
     - Yes. Please send to [rajesh.samala@yahoo.com](email)
     - Please drop mail to [rajesh.samala@yahoo.com](email)
@@ -52,6 +49,10 @@ nlu:
 - intent: goodbye
   examples: |
     - bye
+    - thanks bye
+    - thanks
+    - thank you
+    - Thank you
     - goodbye
     - good bye
     - stop
@@ -219,6 +220,15 @@ nlu:
   examples: |
     - vizag
     - Vizag
+- synonym: thanks
+  examples: |
+    - thanks
+    - thx
+    - tks
+    - tanks
+    - tank you
+    - thanks u
+    - thank u
 - synonym: vegetarian
   examples: |
     - veggie

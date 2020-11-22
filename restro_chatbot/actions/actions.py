@@ -66,7 +66,10 @@ class ActionSearchRestaurants(Action):
         if(cuisine is None):
             dispatcher.utter_message("I am sorry, can't find any results for "+cuislot + " - please try again.")
             return [SlotSet('location',loc), SlotSet('cuisine', None), SlotSet('result', None)]
-           
+        if(budget not in ["low","med","high"]):
+            dispatcher.utter_message("I am sorry, I can only search in 3 price ranges - please select one")
+            return [SlotSet('location',loc), SlotSet('budget', None), SlotSet('result', None)]
+
         logger.info("Searching for "+cuisine+" in "+loc+" for "+budget+" price range")
         location_detail=zomato.get_location(loc, 1)
         d1 = json.loads(location_detail)
