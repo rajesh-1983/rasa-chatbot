@@ -78,9 +78,7 @@ class ActionSearchRestaurants(Action):
         response=""
         rest_cntr = 0
         rest_list = list()
-        if d['results_found'] == 0:
-            response= "no results"
-        else:
+        if d['results_found'] > 0:
             price_hi = 0
             price_lo = 0
             if budget == "low":
@@ -107,16 +105,20 @@ class ActionSearchRestaurants(Action):
                           str(restaurant['restaurant']['average_cost_for_two']), \
                           restaurant['restaurant']['user_rating']['aggregate_rating']])
                 rest_cntr += 1
-                if rest_cntr > 6:
+                # Pick top 10 resturaunt list from response if available
+                if rest_cntr > 10:
                     break
                     
         if len(rest_list) > 0:
             #response = "City : " + loc + "\nCuisine : " + cuisine + "\nPrice range:" + budget + "\n"
-            for restr in rest_list:
+            top5_responses = ""
+            for index, restr in enumerate(rest_list):
                 response = response + restr[0] + " in " + restr[1] + " has been rated " + str(restr[3]) + "\n"
                 #response = response + "rating [" + restr[3] + "] - Avg cost for 2 [Rs. " + restr[2] + \
                             #"] -- " + restr[0] + ", " + restr[1] + "\n" 
-
+                if(index < 5):
+                    top5_responses = top5_responses + restr[0] + " in " + restr[1] + " has been rated " + str(restr[3]) + "\n"
+                    
         logger.info("Response result : {}".format(response))
         if response == "" :
             msg = "Sorry, No results found within budget :{} for cuisine: {} in location: {}, Consider revising them.".format(budget, cuisine, loc)
@@ -126,7 +128,7 @@ class ActionSearchRestaurants(Action):
             response = None
             return [SlotSet('location',loc), SlotSet('cuisine',None), SlotSet('result', response)]
         else:     
-            dispatcher.utter_message(response)
+            dispatcher.utter_message(top5_responses)
         return [SlotSet('location',loc), SlotSet('result', response)]
 
 class ActionCheckBudget(Action):
