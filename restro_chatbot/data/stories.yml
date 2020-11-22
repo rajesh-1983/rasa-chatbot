@@ -1716,3 +1716,180 @@ stories:
   - slot_was_set:
     - result: "Welcome Hotel in 112/241, Purasawalkam High Road, Purasavakkam, Chennai. has been rated 4.6\nDosa Factory in Near Bain School, Kilpauk, Chennai has been rated 4.6\nAndhra Snacking in Opposite Taramani IIT Gate, Pillayar Kovil Street, Taramani, Chennai has been rated 4.6\nNair Mess in 22, Mohammed Abdullah, 2nd Street, Opposite Chepauk Stadium, Chepauk, Triplicane, Chennai has been rated 4.5\nNithya Amirtham Sweets in 58/43, Taylors Road, Opposite SBI Bank, Kilpauk, Chennai has been rated 4.5\n"
   - action: utter_ask_whethermail
+
+- story: interactive_story_incorrect_loc_retry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: mubaim
+  - slot_was_set:
+    - location: mubaim
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: Mumbai
+  - slot_was_set:
+    - location: Mumbai
+  - action: action_check_location
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - result: "Mirchi And Mime in G6,One Boulevard,Lake Boulevard Road, Hiranandani Business Park, Powai, Mumbai has been rated 4.9\nPa Pa Ya in Palladium Mall, Level 3, Senapati Bapat Marg, Lower Parel, Mumbai has been rated 4.9\nBastian in B/1, New Kamal Building, Opposite National College, Linking Road, Bandra West, Mumbai has been rated 4.8\nMasala Library in Ground Floor, First International Financial Centre, Bandra Kurla Complex, Mumbai has been rated 4.8\nJW Café - JW Marriott Mumbai Sahar in IA Project Road, Chhatrapati Shivaji International Airport, Chakala, Mumbai has been rated 4.8\nHakkasan in 206, 2nd Floor, Krystal, Waterfield Road, Linking Road, Bandra West, Mumbai has been rated 4.7\nThe Fusion Kitchen in Shop 1, Opposite Veda Building, Near Bhavdevi Garage, Holy Cross Road, IC Colony, Borivali West, Mumbai has been rated 4.6\nBurma  Burma in Kothari House, Allana Centre Lane, MG Road, Near Mumbai University, Fort, Mumbai has been rated 4.6\nFoo in F1, First Floor, Festival Square, Phoenix Mill Compound, 462, Phoenix Mall, S B Marg, Lower Parel West, Lower Parel, Mumbai has been rated 4.6\nThe Tanjore Tiffin Room in Jewel Mahal Shopping Centre, Versova, Andheri West, Mumbai has been rated 4.6\nPa Pa Ya in G-2, Ground Floor, North Avenue, Maker Maxity, Bandra Kurla Complex, Mumbai has been rated 4.6\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+  - action: email_restaurant_details
+
+- story: interactive_story_incorrect_loc_and_empty_restauraunts_retry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: mubaim
+  - slot_was_set:
+    - location: mubaim
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: Mumbai
+  - slot_was_set:
+    - location: Mumbai
+  - action: action_check_location
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+  - slot_was_set:
+    - budget: low
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - cuisine: null
+  - slot_was_set:
+    - budget: null
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: med
+  - slot_was_set:
+    - budget: med
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - result: "Hearsch Bakery in 90/A, Next to Holy Family Hospital, Hill Road, Bandra West, Mumbai has been rated 4.7\nMiku Dimsum in Santacruz West, Mumbai has been rated 4.6\nGravies & Tikkas in Shop 5/B, Sitladevi CHS, L.K Road, Near D.N Nagar Metro Station, Azad Nagar, Mumbai has been rated 4.6\nFat Buddha in Andheri Lokhandwala, Andheri West, Mumbai has been rated 4.6\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+  - action: email_restaurant_details
+  
+- story: interactive_story_with_tier3_cities
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: Tiruvallur
+  - slot_was_set:
+    - location: Tiruvallur
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: null
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: Chennai
+  - slot_was_set:
+    - location: Chennai
+  - action: action_check_location
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - result: "AB's - Absolute Barbecues in 45, GN Chetty Road, T. Nagar, Chennai has been rated 4.8\nAB's - Absolute Barbecues in Velachery Tharamani Link Road, Opposite TCS, Velachery, Chennai has been rated 4.7\nAvartana - ITC Grand Chola in ITC Grand Chola, 63, Mount Road, Guindy, Chennai has been rated 4.7\nNasi And Mee in 18/24, Yafa Towers, Khader Nawaz Khan Road, Nungambakkam, Chennai has been rated 4.6\nThe Marina in 39, College Road, Nungambakkam, Chennai has been rated 4.6\nVasco's - Hilton Chennai in Hilton, 124/1, JN Salai, Guindy, Chennai has been rated 4.6\nSoy Soi in 2/10, Gandhi Mandapam Road, Kotturpuram, Chennai has been rated 4.5\nMamagoto in Shop 9, Oyster Building, Khader Nawaz Khan Road, Nungambakkam, Chennai has been rated 4.5\nPumpkin Tales in 37/20, Bheemanna Garden Street, Alwarpet, Chennai has been rated 4.5\nAlchemy Bar & Lounge in 180, TTK Road, Alwarpet, Chennai has been rated 4.5\nAB's - Absolute Barbecues in 5th Floor, Vivira Mall, Navallur, Chennai has been rated 4.5\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+  - action: email_restaurant_details

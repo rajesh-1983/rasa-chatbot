@@ -80,6 +80,7 @@ nlu:
     - I am looking for [asian fusion](cuisine) food
     - I am looking a restaurant in [294328](location)
     - in [Gurgaon](location)
+    - in [mubaim](location)
     - [South Indian](cuisine)
     - [North Indian](cuisine)
     - [Italian](cuisine)
