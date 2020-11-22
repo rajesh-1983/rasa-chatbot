@@ -1605,15 +1605,25 @@ stories:
     - email: ts.muralee@gmail.com
   - action: email_restaurant_details
 
+<<<<<<< HEAD
 - story: With_rang_specified_as_>700
   steps:
   - intent: restaurant_search
     entities:
     - location: bengaluru
+=======
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: chennai
+>>>>>>> 918a58652b9eb957d295c9c8f3eb6c4b0cf614af
     - budget: high
   - slot_was_set:
     - budget: high
   - slot_was_set:
+<<<<<<< HEAD
     - location: bengaluru
   - action: action_check_location
   - slot_was_set:
@@ -1637,4 +1647,25 @@ stories:
     - email: ts.muralee@gmail.com
   - slot_was_set:
     - email: ts.muralee@gmail.com
+=======
+    - cuisine: chinese
+  - slot_was_set:
+    - location: chennai
+  - action: action_check_location
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - result: "AB's - Absolute Barbecues in 45, GN Chetty Road, T. Nagar, Chennai has been rated 4.8\nAB's - Absolute Barbecues in Velachery Tharamani Link Road, Opposite TCS, Velachery, Chennai has been rated 4.7\nAvartana - ITC Grand Chola in ITC Grand Chola, 63, Mount Road, Guindy, Chennai has been rated 4.7\nNasi And Mee in 18/24, Yafa Towers, Khader Nawaz Khan Road, Nungambakkam, Chennai has been rated 4.6\nThe Marina in 39, College Road, Nungambakkam, Chennai has been rated 4.6\nVasco's - Hilton Chennai in Hilton, 124/1, JN Salai, Guindy, Chennai has been rated 4.6\nSoy Soi in 2/10, Gandhi Mandapam Road, Kotturpuram, Chennai has been rated 4.5\nMamagoto in Shop 9, Oyster Building, Khader Nawaz Khan Road, Nungambakkam, Chennai has been rated 4.5\nPumpkin Tales in 37/20, Bheemanna Garden Street, Alwarpet, Chennai has been rated 4.5\nAlchemy Bar & Lounge in 180, TTK Road, Alwarpet, Chennai has been rated 4.5\nAB's - Absolute Barbecues in 5th Floor, Vivira Mall, Navallur, Chennai has been rated 4.5\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+>>>>>>> 918a58652b9eb957d295c9c8f3eb6c4b0cf614af
   - action: email_restaurant_details

@@ -38,6 +38,7 @@ nlu:
     - yes. to [ts.muralee@gmail.com](email)
     - [ts.muralee@gmail.com](email)
     - yes send it to [ts.muralee@gmail.com](email)
+    - yes, please send to [samal.rajesh@gmail.com](email)
 - intent: deny
   examples: |
     - no
@@ -162,6 +163,7 @@ nlu:
     - get me [chinese](cuisine) restaurants in [bombay]{"entity": "location", "value": "mumbai"}
     - can you find thai restaurants in [bangalore]{"entity": "location", "value": "bengaluru"} with a price range of [>700]{"entity": "budget", "value": "high"}
     - [north indian](cuisine)
+    - Hi, I want find [chinese](cuisine) restauraunt in [chennai](location) within range [<1000]{"entity": "budget", "value": "high"} per 2 persons
 - synonym: med
   examples: |
     - 300 to 700
