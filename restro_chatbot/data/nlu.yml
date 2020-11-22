@@ -3,11 +3,13 @@ nlu:
 - intent: greet
   examples: |
     - hey
+    - hola
     - howdy
     - hey there
     - hello
     - hi
     - good morning
+    - namaskar
     - good evening
     - dear sir
     - Hi
@@ -35,7 +37,7 @@ nlu:
     - yes. send it to [ts.muralee@gmail.com](email)
     - yes. to [ts.muralee@gmail.com](email)
     - [ts.muralee@gmail.com](email)
-    - [ts.muralee@gmail.com](email)
+    - yes send it to [ts.muralee@gmail.com](email)
 - intent: deny
   examples: |
     - no
@@ -158,8 +160,8 @@ nlu:
     - [less than 300]{"entity": "budget", "value": "low"}
     - change budget [to](budget) [more than 700]{"entity": "budget", "value": "high"}
     - get me [chinese](cuisine) restaurants in [bombay]{"entity": "location", "value": "mumbai"}
-    - [less than 300]{"entity": "budget", "value": "low"}
-    - [south indian](cuisine)
+    - can you find thai restaurants in [bangalore]{"entity": "location", "value": "bengaluru"} with a price range of [>700]{"entity": "budget", "value": "high"}
+    - [north indian](cuisine)
 - synonym: med
   examples: |
     - 300 to 700

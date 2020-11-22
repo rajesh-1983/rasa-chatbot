@@ -65,7 +65,7 @@ class ActionSearchRestaurants(Action):
         # In case user provided cusine is not available fallback to default option
         if(cuisine is None):
             dispatcher.utter_message("I am sorry, can't find any results for "+cuislot + " - please try again.")
-            return [SlotSet('location',loc), SlotSet('result', None)]
+            return [SlotSet('location',loc), SlotSet('cuisine', None), SlotSet('result', None)]
            
         logger.info("Searching for "+cuisine+" in "+loc+" for "+budget+" price range")
         location_detail=zomato.get_location(loc, 1)

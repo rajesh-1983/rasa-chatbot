@@ -1604,3 +1604,37 @@ stories:
   - slot_was_set:
     - email: ts.muralee@gmail.com
   - action: email_restaurant_details
+
+- story: With_rang_specified_as_>700
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: bengaluru
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - slot_was_set:
+    - location: bengaluru
+  - action: action_check_location
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+  - slot_was_set:
+    - cuisine: north indian
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - result: "Truffles in 28, 4th B Cross, Koramangala 5th Block, Bangalore has been rated 4.8\nWindmills Craftworks in 331, EPIP Area, Road 5B, Near KTPO, Whitefield, Bangalore has been rated 4.7\nCommuniti in 67 & 68, Brigade Solitaire, Opposite Advaith Hyundai, Residency Road, Bangalore has been rated 4.7\nBurma Burma in 607, Ground Floor, 12th Main, Hal 2nd Stage, Indiranagar, Bangalore has been rated 4.7\nAB's - Absolute Barbecues in 90/4, 3rd Floor, Outer Ring Road, Munnekollaly Village, Marathahalli, Bangalore has been rated 4.7\nAB's - Absolute Barbecues in 100 Feet Road, 1st Phase, Near Jayadeva Flyover, 2nd Stage, BTM, Bangalore has been rated 4.7\nBrahma Brews in Opposite Brigade Palm Springs, 24th Main, 7th Phase, JP Nagar, Bangalore has been rated 4.6\nOlive Bar And Kitchen in 16, Wood Street, Ashok Nagar, Richmond Road, Bangalore has been rated 4.6\nFenny's Lounge And Kitchen in 115, 3rd Floor, Opposite Raheja Arcade, Koramangala 7th Block, Bangalore has been rated 4.6\nPhobidden Fruit in 965, 12th Main, HAL 2nd Stage, Off 100 Feet Road, Indiranagar, Bangalore has been rated 4.6\nPortland Steakhouse & Cafe in 1, Brunton Road, 1st Cross, Ashok Nagar, MG Road, Bangalore has been rated 4.6\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: ts.muralee@gmail.com
+  - slot_was_set:
+    - email: ts.muralee@gmail.com
+  - action: email_restaurant_details
