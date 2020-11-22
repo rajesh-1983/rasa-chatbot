@@ -57,6 +57,7 @@ class ActionSearchRestaurants(Action):
         budget = tracker.get_slot('budget')
         loc = tracker.get_slot('location')
         cuislot = tracker.get_slot('cuisine')
+        cuisine = None
         # calculate soundex for user provided cusine and get value from cusine_soundex_data 
         try:
             cuisine = cusine_soundex_data[cities.get_soundex(cuislot)]
@@ -65,8 +66,12 @@ class ActionSearchRestaurants(Action):
         # In case user provided cusine is not available fallback to default option
         if(cuisine is None):
             dispatcher.utter_message("I am sorry, can't find any results for "+cuislot + " - please try again.")
-            return [SlotSet('location',loc), SlotSet('cuisine', None), SlotSet('result', None)]
-           
+            return [SlotSet('location',loc), SlotSet('cuisine', None), SlotSet('budget', None)]
+        
+        if(budget is None):
+            logger.info("Prompting for budget again.")
+            return [SlotSet('location',loc), SlotSet('cuisine', cuisine), SlotSet('budget', None)]
+            
         logger.info("Searching for "+cuisine+" in "+loc+" for "+budget+" price range")
         location_detail=zomato.get_location(loc, 1)
         d1 = json.loads(location_detail)
@@ -126,7 +131,7 @@ class ActionSearchRestaurants(Action):
             msg = "How about a different cuisine?"
             dispatcher.utter_message(msg)
             response = None
-            return [SlotSet('location',loc), SlotSet('cuisine',None), SlotSet('result', response)]
+            return [SlotSet('location',loc), SlotSet('cuisine',None), SlotSet('budget',None)]
         else:     
             dispatcher.utter_message(top5_responses)
         return [SlotSet('location',loc), SlotSet('result', response)]
@@ -170,6 +175,7 @@ class ActionCheckLocation(Action):
             loc_data = cities.get_city_category(loc)
         logger.info("Checking location for : {}".format(loc_data if (loc_data is not None) else ""))
         if (loc_data == None):
+            logger.info("location: {} doesn't exist at all".format(loc))
             return [SlotSet('location', None), SlotSet('location_found', 'notfound')]
         elif(loc_data[1] != 'tier1_tier2'):
             return [SlotSet('location', None), SlotSet('location_found', loc_data[1])]
