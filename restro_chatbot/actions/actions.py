@@ -57,6 +57,7 @@ class ActionSearchRestaurants(Action):
         budget = tracker.get_slot('budget')
         loc = tracker.get_slot('location')
         cuislot = tracker.get_slot('cuisine')
+        cuisine = None
         # calculate soundex for user provided cusine and get value from cusine_soundex_data 
         try:
             cuisine = cusine_soundex_data[cities.get_soundex(cuislot)]
@@ -66,10 +67,13 @@ class ActionSearchRestaurants(Action):
         if(cuisine is None):
             dispatcher.utter_message("I am sorry, can't find any results for "+cuislot + " - please try again.")
             return [SlotSet('location',loc), SlotSet('cuisine', None), SlotSet('result', None)]
+
         if(budget not in ["low","med","high"]):
+            logger.info("Prompting for budget again.")
             dispatcher.utter_message("I am sorry, I can only search in 3 price ranges - please select one")
             return [SlotSet('location',loc), SlotSet('budget', None), SlotSet('result', None)]
 
+            
         logger.info("Searching for "+cuisine+" in "+loc+" for "+budget+" price range")
         location_detail=zomato.get_location(loc, 1)
         d1 = json.loads(location_detail)
@@ -129,7 +133,7 @@ class ActionSearchRestaurants(Action):
             msg = "How about a different cuisine?"
             dispatcher.utter_message(msg)
             response = None
-            return [SlotSet('location',loc), SlotSet('cuisine',None), SlotSet('result', response)]
+            return [SlotSet('location',loc), SlotSet('cuisine',None), SlotSet('budget',None)]
         else:     
             dispatcher.utter_message(top5_responses)
         return [SlotSet('location',loc), SlotSet('result', response)]
@@ -173,6 +177,7 @@ class ActionCheckLocation(Action):
             loc_data = cities.get_city_category(loc)
         logger.info("Checking location for : {}".format(loc_data if (loc_data is not None) else ""))
         if (loc_data == None):
+            logger.info("location: {} doesn't exist at all".format(loc))
             return [SlotSet('location', None), SlotSet('location_found', 'notfound')]
         elif(loc_data[1] != 'tier1_tier2'):
             return [SlotSet('location', None), SlotSet('location_found', loc_data[1])]
@@ -209,10 +214,10 @@ class ActionEmailRestuarauntDetails(Action):
         
         if(status):
             logger.info("Sent Restaurant details to : {} successfully.".format(email))
-            dispatcher.utter_message("Mail Sent successfully.")
+            dispatcher.utter_message("Mail Sent successfully to "+email+ ".")
             dispatcher.utter_message(template="utter_final_bye")
         else:
             logger.info("Failed to send email to recepient: {}".format(email))
-            dispatcher.utter_message("Failed to sent email due to techinical issues.")
+            dispatcher.utter_message("Failed to sent email due to technical issues.")
             dispatcher.utter_message(template="utter_final_bye")
         return []        

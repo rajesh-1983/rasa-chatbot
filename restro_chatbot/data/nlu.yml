@@ -216,6 +216,16 @@ nlu:
     - prayagraj
     - pryagraj
     - priagraj
+- synonym: kochi
+  examples: |
+    - ernakulam
+    - cochin
+    - Cochin
+- synonym: kolkata
+  examples: |
+    - calcutta
+    - Calcutta
+    - calcuta
 - synonym: Visakhapatnam
   examples: |
     - vizag

@@ -88,7 +88,10 @@ class CitiesData:
             category = None
             if(len(filtered_by_city.index) > 0):
                 category = cities_data[cities_data['name_of_city'] == city_name.lower()].iloc[0].category
-            return (city_name, category)
+                return (city_name, category)
+            else:
+                return None
+            
     
     # Fetch city category based on city pincode
     def get_city_from_pincode(self, city_pincode):
@@ -98,9 +101,8 @@ class CitiesData:
             cities_list = list(filter_by_pincode)
             category = None
             for city_name in cities_list:
-                city_name1, category = self.get_city_category(city_name)
-                if(category is not None):
-                    break
-            return (city_name1, category)
+                tuple_set = self.get_city_category(city_name)
+                if(tuple_set is not None):
+                    return (tuple_set[0], tuple_set[1])
         else:
             return None
