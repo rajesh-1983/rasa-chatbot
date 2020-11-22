@@ -1,0 +1,230 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - howdy
+    - hey there
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - dear sir
+    - Hi
+- intent: affirm
+  examples: |
+    - yes
+    - yep
+    - yeah
+    - indeed
+    - that's right
+    - ok
+    - great
+    - right, thank you
+    - correct
+    - great choice
+    - sounds really good
+    - thanks
+    - thank you
+    - Thank you
+    - yes. Thank you
+    - Yes. Please send to [rajesh.samala@yahoo.com](email)
+    - Please drop mail to [rajesh.samala@yahoo.com](email)
+    - [rajesh.samala@yahoo.com](email)
+    - Yes. please send it to [ts.muralee@gmail.com](email)
+    - yes. send it to [ts.muralee@gmail.com](email)
+    - yes. to [ts.muralee@gmail.com](email)
+    - [ts.muralee@gmail.com](email)
+    - [ts.muralee@gmail.com](email)
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - not require
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - good bye
+    - stop
+    - end
+    - farewell
+    - Bye bye
+    - have a good one
+    - bye take care
+- intent: restaurant_search
+  examples: |
+    - get me [mexican](cuisine) restaurants in [kolkata](location) with a price range of [300 to 700]{"entity": "budget", "value": "med"}
+    - i'm looking for a place to eat
+    - I want to grab lunch
+    - I am searching for a dinner spot
+    - I am looking for some restaurants in [Delhi](location).
+    - I am looking for some restaurants in [Vizag](location).
+    - I am looking for some restaurants in [Bangalore](location)
+    - show me [chinese](cuisine) restaurants
+    - show me [chines]{"entity": "cuisine", "value": "chinese"} restaurants in the [New Delhi]{"entity": "location", "value": "Delhi"}
+    - show me [chines]{"entity": "cuisine", "value": "chinese"} restaurants in the [Visakhapatnam](location)
+    - show me a [mexican](cuisine) place in the [centre](location)
+    - i am looking for an [indian](cuisine) spot called olaolaolaolaolaola
+    - search for restaurants
+    - anywhere in the [west](location)
+    - I am looking for [asian fusion](cuisine) food
+    - I am looking a restaurant in [294328](location)
+    - in [Gurgaon](location)
+    - [South Indian](cuisine)
+    - [North Indian](cuisine)
+    - [Italian](cuisine)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}
+    - [chinese](cuisine)
+    - [Lithuania](location)
+    - [mexican](cuisine) cuisine
+    - [chinese](cuisine) style
+    - [american](cuisine) food
+    - [china](cuisine) style
+    - [china](cuisine) food
+    - [mexico](cuisine) food
+    - Oh, sorry, in [Italy](location)
+    - in [delhi](location)
+    - I am looking for some restaurants in [Mumbai](location)
+    - I am looking for [mexican indian fusion](cuisine)
+    - [central](location) [indian](cuisine) restaurant
+    - please help me to find restaurants in [pune](location)
+    - Please find me a restaurantin [bangalore](location)
+    - [mumbai](location)
+    - show me restaurants
+    - please find me [chinese](cuisine) restaurant in [delhi](location)
+    - can you find me a [chinese](cuisine) restaurant
+    - [delhi](location)
+    - please find me a restaurant in [ahmedabad](location)
+    - please find me a restaurant with a price range of [300 to 700]{"entity": "budget", "value": "med"}
+    - get me list restaurants in [Pune](location) with a budget of [more than 700]{"entity": "budget", "value": "high"}
+    - get me list restaurants in [Pune](location) with a budget of [>700]{"entity": "budget", "value": "high"}
+    - Looking in [Kolkata](location) for [american](cuisine) with a budget of [<300]{"entity": "budget", "value": "low"}
+    - Looking in [Kolkata](location) for [south indian](cuisine) with a budget of [less than 300]{"entity": "budget", "value": "low"}
+    - please show me a few [italian](cuisine) restaurants in [bangalore](location)
+    - get me [high priced]{"entity": "budget", "value": " high"} [mexican](cuisine) restaurants in [delhi](location)
+    - Please list [low priced](budget) [chinese](cuisine) restaurants in [chennai](location)
+    - please give me [south indian](cuisine) restaurants in [chennai](location) with a price range [between 300 and 700]{"entity": "budget", "value": " med"}
+    - need restaurants in [bangalore](location)
+    - [italian](cuisine)
+    - [300 to 700]{"entity": "budget", "value": "med")
+    - [300 - 700]{"entity": "budget", "value": "med")
+    - [less than 300]{"entity": "budget", "value": "low")
+    - [<300]{"entity": "budget", "value": "low")
+    - [< 300]{"entity": "budget", "value": "low")
+    - [more than 700]{"entity": "budget", "value": "high")
+    - [>700]{"entity": "budget", "value": "high")
+    - [> 700]{"entity": "budget", "value": "high")
+    - [300 to 700]{"entity": "budget", "value": "med"}
+    - [300 and 700]{"entity": "budget", "value": "med"}
+    - [below 300]{"entity": "budget", "value": "low"}
+    - [above 700]{"entity": "budget", "value": "high"}
+    - get me [south indian](cuisine) restaurants in [chennai](location)
+    - can i get restaurants with a budget [more than 700]{"entity": "budget", "value": "high"}
+    - [kanpur](location)
+    - [north indian](cuisine)
+    - in a mood to have [chinese](cuisine) food
+    - somewhere in [mumbai](location)
+    - [more than 700]{"entity": "budget", "value": "high"}
+    - I think its a good day for [mexican](cuisine) food
+    - I'm in [bangalore](location)
+    - how about [chinese](cuisine) with same price range?
+    - lets change the budget to [less than 300]{"entity": "budget", "value": "low"} and try again?
+    - how about [american](cuisine) for same price?
+    - just for fun, let's see what we have in [chennai](location) for the same price range in [american](cuisine)
+    - get me list for [bangalore]{"entity": "location", "value": "bengaluru"}
+    - get me list for [gottigere](location)
+    - [bommanahalli](location)
+    - [bangalore]{"entity": "location", "value": "bengaluru"}
+    - get me restaurants in [channai](location)
+    - [chennai](location)
+    - [south indian](cuisine)
+    - below 500
+    - above 200
+    - get me restaurants
+    - [dilli](location)
+    - [american](cuisine)
+    - get me [amrican](cuisine) restaurants in [channai](location)
+    - feeling hungry and want to order dinner
+    - [Tirupati](location)
+    - [Nellore](location)
+    - Rs. [300 to 700]{"entity": "budget", "value": "med"}
+    - get me [chineez]{"entity": "cuisine", "value": "chinese"} restaurants in [bombay]{"entity": "location", "value": "mumbai"}
+    - [less than 300]{"entity": "budget", "value": "low"}
+    - change budget [to](budget) [more than 700]{"entity": "budget", "value": "high"}
+    - get me [chinese](cuisine) restaurants in [bombay]{"entity": "location", "value": "mumbai"}
+    - [less than 300]{"entity": "budget", "value": "low"}
+    - [south indian](cuisine)
+- synonym: med
+  examples: |
+    - 300 to 700
+    - 300 and 700
+- synonym: chinese
+  examples: |
+    - chines
+    - Chinese
+    - chineez
+    - china
+    - chinees
+    - Chines
+- synonym: Delhi
+  examples: |
+    - New Delhi
+- synonym: high
+  examples: |
+    - more than 700
+    - >700
+    - above 700
+    - > 700
+- synonym: low
+  examples: |
+    - <300
+    - less than 300
+    - below 300
+    - < 300
+- synonym: ' high'
+  examples: |
+    - high priced
+- synonym: ' med'
+  examples: |
+    - between 300 and 700
+- synonym: bengaluru
+  examples: |
+    - bangalore
+    - Bengaluru
+    - bangalor
+    - blore
+- synonym: mumbai
+  examples: |
+    - bombay
+    - bambai
+- synonym: mexican
+  examples: |
+    - mexico
+- synonym: ahmedabad
+  examples: |
+    - prayagraj
+    - pryagraj
+    - priagraj
+- synonym: Visakhapatnam
+  examples: |
+    - vizag
+    - Vizag
+- synonym: vegetarian
+  examples: |
+    - veggie
+    - vegg
+- regex: email
+  examples: |
+    - ^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$
+- regex: greet
+  examples: |
+    - hey[^\s]*
+- regex: pincode
+  examples: |
+    - [0-9]{6}

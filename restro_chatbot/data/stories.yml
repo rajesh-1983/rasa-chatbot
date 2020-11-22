@@ -1,0 +1,1606 @@
+version: "2.0"
+stories:
+- story: Generated Story -5728574425175391795
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 3324389960126450284
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+  - slot_was_set:
+    - location: mumbai
+  - action: action_check_location
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: Generated Story -1042420705001198423
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: mbusmkwoid
+  - slot_was_set:
+    - location: mbusmkwoid
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: less than 300
+  - slot_was_set:
+    - budget: less than 300
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -7632184459360953130
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: mbumkdjjo
+  - slot_was_set:
+    - location: mbumkdjjo
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+  - slot_was_set:
+    - location: mumbai
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: less than 300
+  - slot_was_set:
+    - budget: less than 300
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 8289661407949714569
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: rishikesh
+  - slot_was_set:
+    - location: rishikesh
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: tier3
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: hyderabad
+  - slot_was_set:
+    - location: hyderabad
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story -2833864199242430068
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: haridwar
+  - slot_was_set:
+    - location: haridwar
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: tier3
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: allahabad
+  - slot_was_set:
+    - location: allahabad
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 3110645698589487639
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: surat
+  - slot_was_set:
+    - location: surat
+  - action: action_check_location
+  - slot_was_set:
+    - location: surat
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -553207644721354512
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: ooty
+  - slot_was_set:
+    - location: ooty
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: tier3
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story -3487577125159983332
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: less than 300
+  - slot_was_set:
+    - budget: less than 300
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -5522066894453462499
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: pune
+  - slot_was_set:
+    - location: pune
+  - action: action_check_location
+  - slot_was_set:
+    - location: pune
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 8674505029155364583
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: manali
+  - slot_was_set:
+    - location: manali
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: tier3
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: srinagar
+  - slot_was_set:
+    - location: srinagar
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: less than 300
+  - slot_was_set:
+    - budget: less than 300
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: Generated Story 2965639906906862557
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: pune
+  - slot_was_set:
+    - location: pune
+  - action: action_check_location
+  - slot_was_set:
+    - location: pune
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -2317942585815653083
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: mbunvkdi
+  - slot_was_set:
+    - location: mbunvkdi
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: mysore
+  - slot_was_set:
+    - location: mysore
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 2919437782090380438
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: graaar
+  - slot_was_set:
+    - location: graaar
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: agra
+  - slot_was_set:
+    - location: agra
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: Generated Story 975261038919355657
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: jaipur
+  - slot_was_set:
+    - location: jaipur
+  - action: action_check_location
+  - slot_was_set:
+    - location: jaipur
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -615680271207496431
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: delhi
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: delhi
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 2074771835537969354
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: goa
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: goa
+  - action: action_check_location
+  - slot_was_set:
+    - location: goa
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: less than 300
+  - slot_was_set:
+    - budget: less than 300
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: Generated Story 5215082574752881048
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: ptnsneha
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: ptnsneha
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: patna
+  - slot_was_set:
+    - location: patna
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -4022652206655273989
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: haridwar
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: haridwar
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: tier3
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: allahabad
+  - slot_was_set:
+    - location: allahabad
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: Generated Story -8060376325009107014
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: kolkata
+  - slot_was_set:
+    - location: kolkata
+  - action: action_check_location
+  - slot_was_set:
+    - location: kolkata
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -1994450606479987250
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+    - location: ooty
+  - slot_was_set:
+    - cuisine: south indian
+  - slot_was_set:
+    - location: ooty
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: tier3
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: bengaluru
+  - slot_was_set:
+    - location: bengaluru
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -5349745634692191142
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+    - location: rohtak
+  - slot_was_set:
+    - cuisine: american
+  - slot_was_set:
+    - location: rohtak
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: chandigarh
+  - slot_was_set:
+    - location: chandigarh
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: Generated Story -31585577259034943
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: hwusirinc
+  - slot_was_set:
+    - location: hwusirinc
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: jammu
+  - slot_was_set:
+    - location: jammu
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: less than 300
+  - slot_was_set:
+    - budget: less than 300
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 4088517891962411609
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: gwalior
+  - slot_was_set:
+    - location: gwalior
+  - action: action_check_location
+  - slot_was_set:
+    - location: gwalior
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+  - slot_was_set:
+    - cuisine: american
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: Generated Story 5583956906143519063
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: filmkidiejf
+  - slot_was_set:
+    - location: filmkidiejf
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: faridabad
+  - slot_was_set:
+    - location: faridabad
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: mexican
+  - slot_was_set:
+    - cuisine: mexican
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 1530155811557584268
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: delhi
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: delhi
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: Generated Story 6075735180504578418
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+  - slot_was_set:
+    - location: mumbai
+  - action: action_check_location
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+  - slot_was_set:
+    - cuisine: american
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story 1452116777819784640
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: ahmedabad
+  - slot_was_set:
+    - location: ahmedabad
+  - action: action_check_location
+  - slot_was_set:
+    - location: ahmedabad
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+  - slot_was_set:
+    - cuisine: american
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story -1188042660663965693
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: action_check_location
+  - slot_was_set:
+    - location: bangalore
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: less than 300
+  - slot_was_set:
+    - budget: less than 300
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story 8317358195246434525
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: mexican
+  - slot_was_set:
+    - cuisine: mexican
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: mumbai
+  - slot_was_set:
+    - location: mumbai
+  - action: action_check_location
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story 9105419835541155001
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: action_check_location
+  - slot_was_set:
+    - location: bangalore
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story 214356865658395342
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: kolkata
+  - slot_was_set:
+    - location: kolkata
+  - action: action_check_location
+  - slot_was_set:
+    - location: kolkata
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story -6634767084668550773
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+    - location: delhi
+  - slot_was_set:
+    - cuisine: north indian
+  - slot_was_set:
+    - location: delhi
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: goyal.aiana@gmail.com
+  - slot_was_set:
+    - email: goyal.aiana@gmail.com
+  - action: email_restaurant_details
+- story: Generated Story -6634767084668550773
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+    - location: delhi
+  - slot_was_set:
+    - cuisine: north indian
+  - slot_was_set:
+    - location: delhi
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 877072109721225871
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: chandigarh
+  - slot_was_set:
+    - location: chandigarh
+  - action: action_check_location
+  - slot_was_set:
+    - location: chandigarh
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+  - slot_was_set:
+    - cuisine: north indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story 877072109721225871
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: jaipur
+  - slot_was_set:
+    - location: jaipur
+  - action: action_check_location
+  - slot_was_set:
+    - location: jaipur
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: north indian
+  - slot_was_set:
+    - cuisine: north indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: Generated Story -496076962403225172
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: ptsnkela
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: ptsnkela
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_location_notfound
+  - intent: restaurant_search
+    entities:
+    - location: pune
+  - slot_was_set:
+    - location: pune
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: more than 700
+  - slot_was_set:
+    - budget: more than 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: aiana.goyal@upgrad.com
+  - slot_was_set:
+    - email: aiana.goyal@upgrad.com
+  - action: email_restaurant_details
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: delhi
+  - slot_was_set:
+    - location: delhi
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+    - location: delhi
+  - slot_was_set:
+    - cuisine: italian
+  - slot_was_set:
+    - location: delhi
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: found
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300 to 700
+  - slot_was_set:
+    - budget: 300 to 700
+  - action: action_search_restaurants
+  - action: utter_ask_whethermail
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: dilli
+  - slot_was_set:
+    - location: dilli
+  - action: action_check_location
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+  - slot_was_set:
+    - cuisine: american
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: med
+  - slot_was_set:
+    - budget: med
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - slot_was_set:
+    - result: "american: rating [4.7] - Avg cost for 2 [Rs. 400] -- Wenger's, A 16, Connaught Place, New Delhi\namerican: rating [4.6] - Avg cost for 2 [Rs. 500] -- Wenger's Deli, A 18, Radial Road, Connaught Place, New Delhi\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: ts.muralee@gmail.com
+  - slot_was_set:
+    - email: ts.muralee@gmail.com
+  - action: email_restaurant_details
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: amrican
+    - location: channai
+  - slot_was_set:
+    - cuisine: amrican
+  - slot_was_set:
+    - location: channai
+  - action: action_check_location
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: med
+  - slot_was_set:
+    - budget: med
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chennai
+  - slot_was_set:
+    - result: "City : chennai\nCuisine : american\nPrice range:med\nrating [4.5] - Avg cost for 2 [Rs. 700] -- Mezze, Old 19, New 4, Abhinav Center, Off Chamiers Road, Alwarpet, Chennai\nrating [4.4] - Avg cost for 2 [Rs. 400] -- Fusilli Reasons, 2/64, Ormes Main Road, Kilpauk, Chennai\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: ts.muralee@gmail.com
+  - slot_was_set:
+    - email: ts.muralee@gmail.com
+  - action: email_restaurant_details
+
+- story: interactive_story_hp1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Tirupati
+  - slot_was_set:
+    - location: Tirupati
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: null
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: Nellore
+  - slot_was_set:
+    - location: Nellore
+  - action: action_check_location
+  - slot_was_set:
+    - location: nellore
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: North Indian
+  - slot_was_set:
+    - cuisine: North Indian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: med
+  - slot_was_set:
+    - budget: med
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: nellore
+  - slot_was_set:
+    - result: "rating [4.1] - Avg cost for 2 [Rs. 350] -- Sai Ram Malla Reddy Dhaba, Thalpagiri colony, Opp NH 5 Building, Ayyappagudi circle towards NH, Nellore, Nellore Locality, Nellore\nrating [4.0] - Avg cost for 2 [Rs. 300] -- Salma Biriyani, Shop No -2(B), Balajinagar, Nellore - 524002, Masjid Center, Nellore Locality, Nellore\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+  - action: email_restaurant_details
+
+- story: interactive_story_hp2
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: Tirupati
+  - slot_was_set:
+    - location: Tirupati
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: null
+  - action: utter_foodie_not_working
+  - intent: restaurant_search
+    entities:
+    - location: Visakhapatnam
+  - slot_was_set:
+    - location: Visakhapatnam
+  - action: action_check_location
+  - slot_was_set:
+    - location: visakhapatnam
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Italian
+  - slot_was_set:
+    - cuisine: Italian
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: med
+  - slot_was_set:
+    - budget: med
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: visakhapatnam
+  - slot_was_set:
+    - result: "rating [4.6] - Avg cost for 2 [Rs. 400] -- Sea Inn - Raju Gaari Dhaba, Beach Road, Opposite Cyclone Shelter, Near Gitam College, Visakhapatnam, Rushikonda, Vizag\nrating [4.4] - Avg cost for 2 [Rs. 300] -- Sri Sairam Parlour, Diamond Park, Railway New Colony Road, Dwaraka Nagar, Vizag\nrating [4.4] - Avg cost for 2 [Rs. 300] -- New Kalyani Mess, Door 47-3-13, 5th Lane, Dwarka Nagar, Vizag\nrating [4.3] - Avg cost for 2 [Rs. 300] -- Helapuri Restaurant, 1st Lane, Near Diamond Park, Dondaparthy, Dwaraka Nagar, Visakhapatnam\nrating [4.3] - Avg cost for 2 [Rs. 600] -- My Restaurant, HB Colony, Isukathota, National Highway 5, Besides Honda Showroom, Maddilapalem, Vizag\nrating [4.3] - Avg cost for 2 [Rs. 300] -- Helapuri Restaurant, Opposite RTC Complex, Near Andhra Bank, Dwarakanagar Circle, Dwaraka Nagar, Vizag\nrating [4.3] - Avg cost for 2 [Rs. 300] -- Hotel Prabha Veg Restaurant, 58/1/406, Nad Kotha Road Junction, Visakhapatnam\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+  - action: email_restaurant_details
+
+- story: vishakhapatnam
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+    - location: Visakhapatnam
+  - slot_was_set:
+    - cuisine: american
+  - slot_was_set:
+    - location: Visakhapatnam
+  - action: action_check_location
+  - slot_was_set:
+    - location: visakhapatnam
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: visakhapatnam
+  - slot_was_set:
+    - result: "rating [4.4] - Avg cost for 2 [Rs. 900] -- Zeeshan Restaurant - Apna Hyderabadi Food, 28-10-3, Ground Floor, Opposite Chitralaya Mall, Jagadamba Junction, Vizag\nrating [4.4] - Avg cost for 2 [Rs. 900] -- The Spicy Venue, 27, 9-30-2/1, Balaji Nagar, Siripuram, Vizag\nrating [4.3] - Avg cost for 2 [Rs. 800] -- Kamat Restaurant, Beach Road, Near Santhi Ashram, Lawsons Bay, Visakhapatnam\nrating [4.3] - Avg cost for 2 [Rs. 800] -- Somaa Restobar, 4th floor, VIP Centre, VIP Road, Asilmetta, Vizag\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+  - action: email_restaurant_details
+
+- story: No_results_from_search
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: mumbai
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: mumbai
+  - action: action_check_location
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+  - slot_was_set:
+    - budget: low
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - cuisine: null
+  - slot_was_set:
+    - result: null
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: mumbai
+  - slot_was_set:
+    - result: "Hotel Ram Ashraya in Bhandarkar Road, Matunga East, Mumbai has been rated 4.9\nCafe Madras in 38 B, Circle House, King's Circle Near Maheshwari Udyan, Matunga East, Mumbai has been rated 4.8\nPrakash Shakahari Upahaar Kendra in 9/10, Horizon Towers, Ranade Road, Dadar West, Dadar Shivaji Park, Mumbai has been rated 4.8\nAshok Vada Pav Stall in Off Cadel Road, Kirti College Lane, Prabhadevi, Mumbai has been rated 4.7\nGanesha Jumbo Idli in A113, Shop 2, Sector 21, Opposite ICL School, Turbhe, Navi Mumbai has been rated 4.6\nGuru Kripa in 40, Guru Kripa Building, Road 24, Near SIES College, Sion, Mumbai has been rated 4.4\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: ts.muralee@gmail.com
+  - slot_was_set:
+    - email: ts.muralee@gmail.com
+  - action: email_restaurant_details

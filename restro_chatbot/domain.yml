@@ -1,0 +1,111 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- restaurant_search
+- greet
+- goodbye
+- deny
+entities:
+- budget
+- cuisine
+- email
+- location
+- people
+slots:
+  budget:
+    type: text
+    influence_conversation: true
+  cuisine:
+    type: text
+    influence_conversation: true
+  email:
+    type: text
+    influence_conversation: false
+  location:
+    type: text
+    influence_conversation: true
+  location_found:
+    type: text
+    influence_conversation: true
+  result:
+    type: text
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_final_bye:
+  - text: Hope you got what you asked for, Have a great day.
+  - text: Hope that was helpful, Have a great day.
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  utter_default:
+  - text: I cannot understand
+  - text: I am a bot
+  utter_ask_location:
+  - text: In what location?
+  - text: Which city are you looking for?
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_budget:
+  - buttons:
+    - payload: less than 300
+      title: less than Rs. 300
+    - payload: 300 to 700
+      title: Rs. 300 to 700
+    - payload: more than 700
+      title: More than Rs. 700
+    text: What's the average budget for two people?
+  utter_ask_whethermail:
+  - text: Should I send you details of all the restaurants on email?
+  utter_ask_mail:
+  - text: Plese provide valid email Id
+  utter_ask_cuisine:
+  - buttons:
+    - payload: chinese
+      title: chinese
+    - payload: italian
+      title: italian
+    - payload: south indian
+      title: south indian
+    - payload: north indian
+      title: north indian
+    - payload: mexican
+      title: mexican
+    - payload: american
+      title: american
+    text: what kind of cuisine would you like?
+  utter_confirm_email_reporting:
+  - text: Sent. Bon Appetit!
+  utter_results_notfound:
+  - text: Sorry I couldn't get any results. Please try again with different search criteria.
+  utter_location_notfound:
+  - text: Sorry, didn’t find any such location. Can you please tell again?
+  utter_foodie_not_working:
+  - text: Sorry, we don’t operate in this city. Can you please specify some other location
+actions:
+- action_check_location
+- action_search_restaurants
+- check_budget
+- email_restaurant_details
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_mail
+- utter_ask_whethermail
+- utter_confirm_email_reporting
+- utter_default
+- utter_did_that_help
+- utter_final_bye
+- utter_foodie_not_working
+- utter_goodbye
+- utter_greet
+- utter_location_notfound
+version: '2.0'
