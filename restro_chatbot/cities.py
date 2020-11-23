@@ -53,7 +53,7 @@ tier_1_nd_2_cities = os.path.abspath('data/knowledgebase/cities')
 # Load cities data and cities pincodes data of india
 cities_data = pd.read_csv(cities_path)
 cities_pincodes_data = pd.read_csv(cities_pin_codes_path)
-print(cities_pincodes_data.info())
+
 # change city names to lower case
 cities_pincodes_data['Taluk'] = cities_pincodes_data['Taluk'].str.lower()
 cities_data['name_of_city'] = cities_data['name_of_city'].str.lower()

@@ -14,6 +14,8 @@ nlu:
     - good evening
     - dear sir
     - Hi
+    - Hola
+    - Hello!
 - intent: affirm
   examples: |
     - yes
@@ -37,6 +39,7 @@ nlu:
     - [ts.muralee@gmail.com](email)
     - yes send it to [ts.muralee@gmail.com](email)
     - yes, please send to [samal.rajesh@gmail.com](email)
+    - [samal.rajesh@gmail.com](email)
 - intent: deny
   examples: |
     - no
@@ -47,6 +50,7 @@ nlu:
     - no way
     - not really
     - not require
+    - no, thank you
 - intent: goodbye
   examples: |
     - bye
@@ -165,8 +169,16 @@ nlu:
     - change budget [to](budget) [more than 700]{"entity": "budget", "value": "high"}
     - get me [chinese](cuisine) restaurants in [bombay]{"entity": "location", "value": "mumbai"}
     - can you find thai restaurants in [bangalore]{"entity": "location", "value": "bengaluru"} with a price range of [>700]{"entity": "budget", "value": "high"}
-    - [north indian](cuisine)
     - Hi, I want find [chinese](cuisine) restauraunt in [chennai](location) within range [<1000]{"entity": "budget", "value": "high"} per 2 persons
+    - I am hungry, looking for a restauraunt
+    - I will prefer [thai](cuisine)
+    - looking for good restauraunts
+    - in [bangalore]{"entity": "location", "value": "bengaluru"}
+    - I prefer [Thai](cuisine)
+    - want to order my dinner
+    - in [bangalore]{"entity": "location", "value": "bengaluru"}
+    - i prefer [thai](cuisine)
+    - [>700]{"entity": "budget", "value": "high"}
 - synonym: med
   examples: |
     - 300 to 700
@@ -187,6 +199,7 @@ nlu:
     - more than 700
     - >700
     - above 700
+    - <1000
     - > 700
 - synonym: low
   examples: |

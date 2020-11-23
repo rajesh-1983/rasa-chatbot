@@ -29,28 +29,43 @@ handler.setLevel(logging.DEBUG)
 
 logger.addHandler(handler)
 
-#Use default cusine for fallback option
-default_cusine = 'chinese'
-
 # Initilize soundex for cusine
-cuisines_dict={'american':1,
+default_cuisines_dict={'american':1,
                        'chinese':25,
                        'mexican':73,
                        'italian':55,
                        'north indian':50,
                        'south indian':85}
  
-cusine_soundex_data = dict()
+default_cusine_soundex_data = dict()
 
 # Fill cusine soundex data
-for cussnd in cuisines_dict.keys():
-   cusine_soundex_data[cities.get_soundex(cussnd)] = cussnd
+for cussnd in default_cuisines_dict.keys():
+   default_cusine_soundex_data[cities.get_soundex(cussnd)] = cussnd
    
 class ActionSearchRestaurants(Action):
     
     def name(self):
         return 'action_search_restaurants'
     
+    def get_cuinse_dict(self, zomato, locId):
+        cusine_soundex_data = dict()
+        cuisines_dict = dict()
+        try:
+            cuisine_data_set = zomato.get_cuisines(locId)
+            logger.info("Successfully fetched cusine details for loc Id: {}".format(locId))
+            if(len(cuisine_data_set) == 0):
+                return (default_cuisines_dict, default_cusine_soundex_data)
+            else:
+                for cuisine_code, cuisine_name in cuisine_data_set.items():
+                    cusine_soundex_data[cities.get_soundex(cuisine_name)] = cuisine_name.lower()
+                    cuisines_dict[cuisine_name.lower()] = cuisine_code
+                return (cuisines_dict, cusine_soundex_data)
+        except Exception as exp:
+            logger.info("Exception while fetching cusines details for loc: {}".format(locId))
+            logger.error(exp)
+        return (default_cuisines_dict, default_cusine_soundex_data)
+        
     def run(self, dispatcher, tracker, domain):
         config={ "user_key":"bc5f75f74ab805a051b1fde8b8c6970e"}
         zomato = zomatopy.initialize_app(config)
@@ -58,10 +73,22 @@ class ActionSearchRestaurants(Action):
         loc = tracker.get_slot('location')
         cuislot = tracker.get_slot('cuisine')
         cuisine = None
-        # calculate soundex for user provided cusine and get value from cusine_soundex_data 
+        # calculate soundex for user provided cusine and get value from cusine_soundex_data
+        location_detail=zomato.get_location(loc, 1)
+        d1 = json.loads(location_detail)
+        locId = d1["location_suggestions"][0]["city_id"]
+        lat=d1["location_suggestions"][0]["latitude"]
+        lon=d1["location_suggestions"][0]["longitude"]
+        # Fetch cuisine details based on location
+        cuisines_dict, cusine_soundex_data = self.get_cuinse_dict(zomato, locId)
         try:
-            cuisine = cusine_soundex_data[cities.get_soundex(cuislot)]
+            if cuislot.lower() in cuisines_dict:
+               cuisine = cuislot.lower()
+            else:
+                logger.info("cusine name : {} not exist in supprted cusines in location: {}, so searching with soundex value.".format(cuislot, loc))
+                cuisine = cusine_soundex_data[cities.get_soundex(cuislot)]
         except:
+            logger.ifo("cusine : {} in location: {} doesn't in available cusines list and its sound-ex value also not present.".format(cuislot, loc))
             cuisine=None
         # In case user provided cusine is not available fallback to default option
         if(cuisine is None):
@@ -72,13 +99,8 @@ class ActionSearchRestaurants(Action):
             logger.info("Prompting for budget again.")
             dispatcher.utter_message("I am sorry, I can only search in 3 price ranges - please select one")
             return [SlotSet('location',loc), SlotSet('budget', None), SlotSet('result', None)]
-
             
         logger.info("Searching for {} in {} for {} price range".format(cuisine, loc, budget))
-        location_detail=zomato.get_location(loc, 1)
-        d1 = json.loads(location_detail)
-        lat=d1["location_suggestions"][0]["latitude"]
-        lon=d1["location_suggestions"][0]["longitude"]
         results=zomato.restaurant_search("", lat, lon, 
                                str(cuisines_dict.get(cuisine)), 20)
         d = json.loads(results)
@@ -136,7 +158,7 @@ class ActionSearchRestaurants(Action):
             return [SlotSet('location',loc), SlotSet('cuisine',None), SlotSet('budget',None)]
         else:     
             dispatcher.utter_message(top5_responses)
-        return [SlotSet('location',loc), SlotSet('result', response)]
+        return [SlotSet('location',loc), SlotSet('cuisine',cuisine), SlotSet('result', response)]
 
 class ActionCheckBudget(Action):
 
@@ -193,14 +215,10 @@ class ActionEmailRestuarauntDetails(Action):
     def run(self, dispatcher, tracker, domain):
         logger.info("Inside ActionEmailRestuarauntDetails")
         loc = tracker.get_slot('location')
+        cuisine = tracker.get_slot('cuisine')
         price_q = tracker.get_slot('budget')
         email = tracker.get_slot('email')
         email_body = tracker.get_slot('result')
-
-        try:
-            cuisine = cusine_soundex_data[cities.get_soundex(tracker.get_slot('cuisine'))]
-        except:
-            cuisine = None
 
         if email_body is None or cuisine is None or price_q is None or loc is None:
             dispatcher.utter_message("No valid search results to send.")

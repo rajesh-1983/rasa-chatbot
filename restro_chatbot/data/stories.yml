@@ -1889,3 +1889,128 @@ stories:
   - slot_was_set:
     - email: samal.rajesh@gmail.com
   - action: email_restaurant_details
+  
+- story: interactive_story_other_option_cuisine3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bengaluru
+  - slot_was_set:
+    - location: bengaluru
+  - action: action_check_location
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: thai
+  - slot_was_set:
+    - cuisine: thai
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: med
+  - slot_was_set:
+    - budget: med
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - result: "Lot Like Crepes in 203, 1st Main, Koramangala 7th Block, Bangalore has been rated 4.7\nArt of Delight in 44/1, Residency Road, Bangalore has been rated 4.6\nMatteo Coffea in 2, Church Street, Bangalore has been rated 4.5\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+  - action: utter_ask_mail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+  - action: email_restaurant_details
+
+- story: interactive_story_other_option_cuisine1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bengaluru
+  - slot_was_set:
+    - location: bengaluru
+  - action: action_check_location
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: Thai
+  - slot_was_set:
+    - cuisine: Thai
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - cuisine: Tea
+  - slot_was_set:
+    - result: "Truffles in 28, 4th B Cross, Koramangala 5th Block, Bangalore has been rated 4.8\nBurma Burma in 607, Ground Floor, 12th Main, Hal 2nd Stage, Indiranagar, Bangalore has been rated 4.7\nTruffles in Vasavi Complex, St. Marks Road, Bangalore has been rated 4.7\nFenny's Lounge And Kitchen in 115, 3rd Floor, Opposite Raheja Arcade, Koramangala 7th Block, Bangalore has been rated 4.6\nPhobidden Fruit in 965, 12th Main, HAL 2nd Stage, Off 100 Feet Road, Indiranagar, Bangalore has been rated 4.6\nPortland Steakhouse & Cafe in 1, Brunton Road, 1st Cross, Ashok Nagar, MG Road, Bangalore has been rated 4.6\nHae Kum Gang in 20, Pauls Castle, Castle Street, Ashok Nagar, Brigade Road, Bangalore has been rated 4.6\nThe Boozy Griffin in 20/7, 4th & 5th Floor, Swamy Legato, Outer Ring Road, Kadubeesanahalli, Marathahalli, Bangalore has been rated 4.6\nThe Fatty Bao - Asian Gastro Bar in 610, 3rd Floor, 12th Main, Off 80 Feet Road, Indiranagar, Bangalore has been rated 4.5\nLazy Suzy in 36, 80 Feet Road, Indiranagar, Bangalore has been rated 4.5\nPasta Street in 2022, 100 Feet Road,HAL 2nd Stage, Indiranagar, Bangalore has been rated 4.5\n"
+  - action: utter_ask_whethermail
+  - intent: affirm
+    entities:
+    - email: samal.rajesh@gmail.com
+  - slot_was_set:
+    - email: samal.rajesh@gmail.com
+  - action: email_restaurant_details
+
+- story: interactive_story_other_option_cuisine2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bengaluru
+  - slot_was_set:
+    - location: bengaluru
+  - action: action_check_location
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: thai
+  - slot_was_set:
+    - cuisine: thai
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - cuisine: thai
+  - slot_was_set:
+    - result: "Rim Naam - The Oberoi in The Oberoi, 37-39, MG Road, Bangalore has been rated 4.9\nTruffles in 28, 4th B Cross, Koramangala 5th Block, Bangalore has been rated 4.8\nBurma Burma in 607, Ground Floor, 12th Main, Hal 2nd Stage, Indiranagar, Bangalore has been rated 4.7\nPhobidden Fruit in 965, 12th Main, HAL 2nd Stage, Off 100 Feet Road, Indiranagar, Bangalore has been rated 4.6\nJW Kitchen - JW Marriott Bengaluru in JW Marriott, 24/1, Vittal Mallya Road, Lavelle Road, Bangalore has been rated 4.6\nThe Globe Grub in 2nd Floor, Soul Space Paradigm, Outer Ring Road, Near Bata Showroom, Marathahalli, Bangalore has been rated 4.6\nThe Terrace at Gilly's Redefined in 413, 100 Feet Road, Beside E-Zone, Koramangala 4th Block, Bangalore has been rated 4.6\nThe Boozy Griffin in 20/7, 4th & 5th Floor, Swamy Legato, Outer Ring Road, Kadubeesanahalli, Marathahalli, Bangalore has been rated 4.6\nThe Fatty Bao - Asian Gastro Bar in 610, 3rd Floor, 12th Main, Off 80 Feet Road, Indiranagar, Bangalore has been rated 4.5\nXOOX Brewmill in 8, Industrial Layout, Near HDFC Bank, Koramangala 5th Block, Bangalore has been rated 4.5\nLazy Suzy in 36, 80 Feet Road, Indiranagar, Bangalore has been rated 4.5\n"
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
