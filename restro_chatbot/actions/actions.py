@@ -65,7 +65,7 @@ class ActionSearchRestaurants(Action):
             cuisine=None
         # In case user provided cusine is not available fallback to default option
         if(cuisine is None):
-            dispatcher.utter_message("I am sorry, can't find any results for "+cuislot + " - please try again.")
+            dispatcher.utter_message("I am sorry, can't find any results for {} - please try again.".format(cuislot))
             return [SlotSet('location',loc), SlotSet('cuisine', None), SlotSet('result', None)]
 
         if(budget not in ["low","med","high"]):
@@ -74,7 +74,7 @@ class ActionSearchRestaurants(Action):
             return [SlotSet('location',loc), SlotSet('budget', None), SlotSet('result', None)]
 
             
-        logger.info("Searching for "+cuisine+" in "+loc+" for "+budget+" price range")
+        logger.info("Searching for {} in {} for {} price range".format(cuisine, loc, budget))
         location_detail=zomato.get_location(loc, 1)
         d1 = json.loads(location_detail)
         lat=d1["location_suggestions"][0]["latitude"]
@@ -160,7 +160,7 @@ class ActionCheckLocation(Action):
     
     # Check whether location is string or pincode. If pincode we try to fill location using pincode
     def is_loc_value_is_pincode(self, loc):
-        match_found = re.search('^\d{6}$', loc)
+        match_found = re.search('^\d{6}', loc)
         if match_found:
            return True
         else:
@@ -172,7 +172,8 @@ class ActionCheckLocation(Action):
         cities = CitiesData()
         loc_data = None
         if(self.is_loc_value_is_pincode(loc)):
-            loc_data = cities.get_city_from_pincode(loc)
+            logger.info("Location identified as pincode")
+            loc_data = cities.get_city_from_pincode(loc, logger)
         else:
             loc_data = cities.get_city_category(loc)
         logger.info("Checking location for : {}".format(loc_data if (loc_data is not None) else ""))

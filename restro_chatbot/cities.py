@@ -53,7 +53,7 @@ tier_1_nd_2_cities = os.path.abspath('data/knowledgebase/cities')
 # Load cities data and cities pincodes data of india
 cities_data = pd.read_csv(cities_path)
 cities_pincodes_data = pd.read_csv(cities_pin_codes_path)
-print(cities_data.head(5))
+print(cities_pincodes_data.info())
 # change city names to lower case
 cities_pincodes_data['Taluk'] = cities_pincodes_data['Taluk'].str.lower()
 cities_data['name_of_city'] = cities_data['name_of_city'].str.lower()
@@ -94,14 +94,17 @@ class CitiesData:
             
     
     # Fetch city category based on city pincode
-    def get_city_from_pincode(self, city_pincode):
-        filter_by_pincode = cities_pincodes_data[cities_pincodes_data['pincode'] == city_pincode, 'Taluk']
+    def get_city_from_pincode(self, city_pincode, logger):
+        logger.info("inside get_city_from_pincode")
+        filter_by_pincode = cities_pincodes_data.loc[cities_pincodes_data['pincode'] == int(city_pincode), 'Taluk']
         
         if(len(filter_by_pincode) > 0):
             cities_list = list(filter_by_pincode)
+            logger.info("Identified List of cities : {} for pincode: {}".format(cities_list, city_pincode))
             category = None
             for city_name in cities_list:
                 tuple_set = self.get_city_category(city_name)
+                logger.info("checking city : {} for pincode: {}".format(city_name, city_pincode))
                 if(tuple_set is not None):
                     return (tuple_set[0], tuple_set[1])
         else:
