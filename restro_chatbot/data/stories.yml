@@ -2014,3 +2014,131 @@ stories:
   - action: utter_ask_whethermail
   - intent: deny
   - action: utter_final_bye
+- story: no_service_pincode_1
+  steps:
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: '560083'
+  - slot_was_set:
+    - location: '560083'
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_foodie_not_working
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: '560076'
+  - slot_was_set:
+    - location: '560076'
+  - action: action_check_location
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+  - slot_was_set:
+    - budget: low
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - result: "Momo-Domo in 165/161/139/8/1­12, Nyanapanahalli Village, Begur Hobli, BBMP, Bommanahalli, Bangalore has been rated 4.6\n"
+  - action: utter_ask_whethermail
+  - intent: deny
+  - action: utter_final_bye
+
+- story: invalid_city_1
+  steps:
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: berhampur
+  - slot_was_set:
+    - location: berhampur
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_foodie_not_working
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bangarapet
+  - slot_was_set:
+    - location: bangarapet
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_foodie_not_working
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: chikkaballapur
+  - slot_was_set:
+    - location: chikkaballapur
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_foodie_not_working
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: malakkappara
+  - slot_was_set:
+    - location: malakkappara
+  - action: action_check_location
+  - slot_was_set:
+    - location: null
+  - slot_was_set:
+    - location_found: notfound
+  - action: utter_foodie_not_working
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: '560076'
+  - slot_was_set:
+    - location: '560076'
+  - action: action_check_location
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - location_found: tier1_tier2
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: med
+  - slot_was_set:
+    - budget: med
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: bengaluru
+  - slot_was_set:
+    - result: "Momo-Domo in 165/161/139/8/1­12, Nyanapanahalli Village, Begur Hobli, BBMP, Bommanahalli, Bangalore has been rated 4.6\n"
+  - action: utter_ask_whethermail
+  - intent: deny

@@ -73,92 +73,100 @@ class ActionSearchRestaurants(Action):
         loc = tracker.get_slot('location')
         cuislot = tracker.get_slot('cuisine')
         cuisine = None
-        # calculate soundex for user provided cusine and get value from cusine_soundex_data
-        location_detail=zomato.get_location(loc, 1)
-        d1 = json.loads(location_detail)
-        locId = d1["location_suggestions"][0]["city_id"]
-        lat=d1["location_suggestions"][0]["latitude"]
-        lon=d1["location_suggestions"][0]["longitude"]
-        # Fetch cuisine details based on location
-        cuisines_dict, cusine_soundex_data = self.get_cuinse_dict(zomato, locId)
         try:
-            if cuislot.lower() in cuisines_dict:
-               cuisine = cuislot.lower()
-            else:
-                logger.info("cusine name : {} not exist in supprted cusines in location: {}, so searching with soundex value.".format(cuislot, loc))
-                cuisine = cusine_soundex_data[cities.get_soundex(cuislot)]
-        except:
-            logger.ifo("cusine : {} in location: {} doesn't in available cusines list and its sound-ex value also not present.".format(cuislot, loc))
-            cuisine=None
-        # In case user provided cusine is not available fallback to default option
-        if(cuisine is None):
-            dispatcher.utter_message("I am sorry, can't find any results for {} - please try again.".format(cuislot))
-            return [SlotSet('location',loc), SlotSet('cuisine', None), SlotSet('result', None)]
+            # calculate soundex for user provided cusine and get value from cusine_soundex_data
+            logger.info("Finding localtion details for location: {}".format(loc))
+            location_detail=zomato.get_location(loc, 1)
+            d1 = json.loads(location_detail)
+            locId = d1["location_suggestions"][0]["city_id"]
+            lat=d1["location_suggestions"][0]["latitude"]
+            lon=d1["location_suggestions"][0]["longitude"]
+            # Fetch cuisine details based on location
+            cuisines_dict, cusine_soundex_data = self.get_cuinse_dict(zomato, locId)
+            try:
+                if cuislot.lower() in cuisines_dict:
+                   cuisine = cuislot.lower()
+                else:
+                    logger.info("cusine name : {} not exist in supprted cusines in location: {}, so searching with soundex value.".format(cuislot, loc))
+                    cuisine = cusine_soundex_data[cities.get_soundex(cuislot)]
+            except:
+                logger.ifo("cusine : {} in location: {} doesn't in available cusines list and its sound-ex value also not present.".format(cuislot, loc))
+                cuisine=None
+            # In case user provided cusine is not available fallback to default option
+            if(cuisine is None):
+                dispatcher.utter_message("I am sorry, can't find any results for {} - please try again.".format(cuislot))
+                return [SlotSet('location',loc), SlotSet('cuisine', None), SlotSet('result', None)]
 
-        if(budget not in ["low","med","high"]):
-            logger.info("Prompting for budget again.")
-            dispatcher.utter_message("I am sorry, I can only search in 3 price ranges - please select one")
-            return [SlotSet('location',loc), SlotSet('budget', None), SlotSet('result', None)]
-            
-        logger.info("Searching for {} in {} for {} price range".format(cuisine, loc, budget))
-        results=zomato.restaurant_search("", lat, lon, 
-                               str(cuisines_dict.get(cuisine)), 20)
-        d = json.loads(results)
-        response=""
-        rest_cntr = 0
-        rest_list = list()
-        if d['results_found'] > 0:
-            price_hi = 0
-            price_lo = 0
-            if budget == "low":
-                price_hi = 300
-            elif budget == "med":
-                price_lo = 300
-                price_hi = 700
-            elif budget == "high":
-                price_lo = 700
- 
-            logger.info("Got " + str(len(d['restaurants'])) + "results from zomato")
-            for restaurant in d['restaurants']:
-                if price_hi > 0:
-                    if restaurant['restaurant']['average_cost_for_two'] > price_hi:
-                        continue
+            if(budget not in ["low","med","high"]):
+                logger.info("Prompting for budget again.")
+                dispatcher.utter_message("I am sorry, I can only search in 3 price ranges - please select one")
+                return [SlotSet('location',loc), SlotSet('budget', None), SlotSet('result', None)]
+                
+            logger.info("Searching for {} in {} for {} price range".format(cuisine, loc, budget))
+            results=zomato.restaurant_search("", lat, lon, 
+                                   str(cuisines_dict.get(cuisine)), 20)
+            d = json.loads(results)
+            response=""
+            rest_cntr = 0
+            rest_list = list()
+            if d['results_found'] > 0:
+                price_hi = 0
+                price_lo = 0
+                if budget == "low":
+                    price_hi = 300
+                elif budget == "med":
+                    price_lo = 300
+                    price_hi = 700
+                elif budget == "high":
+                    price_lo = 700
+     
+                logger.info("Got " + str(len(d['restaurants'])) + "results from zomato")
+                for restaurant in d['restaurants']:
+                    if price_hi > 0:
+                        if restaurant['restaurant']['average_cost_for_two'] > price_hi:
+                            continue
 
-                if price_lo > 0:
-                    if restaurant['restaurant']['average_cost_for_two'] < price_lo:
-                        continue
- 
-                rest_list.append( \
-                          [restaurant['restaurant']['name'], \
-                          restaurant['restaurant']['location']['address'], \
-                          str(restaurant['restaurant']['average_cost_for_two']), \
-                          restaurant['restaurant']['user_rating']['aggregate_rating']])
-                rest_cntr += 1
-                # Pick top 10 resturaunt list from response if available
-                if rest_cntr > 10:
-                    break
-                    
-        if len(rest_list) > 0:
-            #response = "City : " + loc + "\nCuisine : " + cuisine + "\nPrice range:" + budget + "\n"
-            top5_responses = ""
-            for index, restr in enumerate(rest_list):
-                response = response + restr[0] + " in " + restr[1] + " has been rated " + str(restr[3]) + "\n"
-                #response = response + "rating [" + restr[3] + "] - Avg cost for 2 [Rs. " + restr[2] + \
-                            #"] -- " + restr[0] + ", " + restr[1] + "\n" 
-                if(index < 5):
-                    top5_responses = top5_responses + restr[0] + " in " + restr[1] + " has been rated " + str(restr[3]) + "\n"
-                    
-        logger.info("Response result : {}".format(response))
-        if response == "" :
-            msg = "Sorry, No results found within budget :{} for cuisine: {} in location: {}, Consider revising them.".format(budget, cuisine, loc)
-            dispatcher.utter_message(msg)
-            msg = "How about a different cuisine?"
-            dispatcher.utter_message(msg)
-            response = None
-            return [SlotSet('location',loc), SlotSet('cuisine',None), SlotSet('budget',None)]
-        else:     
-            dispatcher.utter_message(top5_responses)
-        return [SlotSet('location',loc), SlotSet('cuisine',cuisine), SlotSet('result', response)]
+                    if price_lo > 0:
+                        if restaurant['restaurant']['average_cost_for_two'] < price_lo:
+                            continue
+     
+                    rest_list.append( \
+                              [restaurant['restaurant']['name'], \
+                              restaurant['restaurant']['location']['address'], \
+                              str(restaurant['restaurant']['average_cost_for_two']), \
+                              restaurant['restaurant']['user_rating']['aggregate_rating']])
+                    rest_cntr += 1
+                    # Pick top 10 resturaunt list from response if available
+                    if rest_cntr > 10:
+                        break
+                        
+            if len(rest_list) > 0:
+                #response = "City : " + loc + "\nCuisine : " + cuisine + "\nPrice range:" + budget + "\n"
+                top5_responses = ""
+                for index, restr in enumerate(rest_list):
+                    response = response + restr[0] + " in " + restr[1] + " has been rated " + str(restr[3]) + "\n"
+                    #response = response + "rating [" + restr[3] + "] - Avg cost for 2 [Rs. " + restr[2] + \
+                                #"] -- " + restr[0] + ", " + restr[1] + "\n" 
+                    if(index < 5):
+                        top5_responses = top5_responses + restr[0] + " in " + restr[1] + " has been rated " + str(restr[3]) + "\n"
+                        
+            logger.info("Response result : {}".format(response))
+            if response == "" :
+                msg = "Sorry, No results found within budget :{} for cuisine: {} in location: {}, Consider revising them.".format(budget, cuisine, loc)
+                dispatcher.utter_message(msg)
+                msg = "How about a different cuisine?"
+                dispatcher.utter_message(msg)
+                response = None
+                return [SlotSet('location',loc), SlotSet('cuisine',None), SlotSet('budget',None)]
+            else:     
+                dispatcher.utter_message(top5_responses)
+            return [SlotSet('location',loc), SlotSet('cuisine',cuisine), SlotSet('result', response)]
+        except Exception as exe2:
+            msg = "Error while fetching details for location: {}, cusine: {}, please provide valid location.".format(loc, cuislot)
+            logger.info(msg)
+            logger.error(exe2)
+            dispatcher.utter_message(message)
+            return [SlotSet('location',None), SlotSet('cuisine',None), SlotSet('budget',None)]
 
 class ActionCheckBudget(Action):
 
