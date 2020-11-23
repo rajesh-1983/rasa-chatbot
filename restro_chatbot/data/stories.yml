@@ -2014,6 +2014,7 @@ stories:
   - action: utter_ask_whethermail
   - intent: deny
   - action: utter_final_bye
+
 - story: no_service_pincode_1
   steps:
   - intent: restaurant_search

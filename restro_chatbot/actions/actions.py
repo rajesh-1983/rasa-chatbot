@@ -165,7 +165,7 @@ class ActionSearchRestaurants(Action):
             msg = "Error while fetching details for location: {}, cusine: {}, please provide valid location.".format(loc, cuislot)
             logger.info(msg)
             logger.error(exe2)
-            dispatcher.utter_message(message)
+            dispatcher.utter_message(msg)
             return [SlotSet('location',None), SlotSet('cuisine',None), SlotSet('budget',None)]
 
 class ActionCheckBudget(Action):
